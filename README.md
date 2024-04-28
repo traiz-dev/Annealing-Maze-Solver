@@ -4,10 +4,11 @@ This repository contains a simple game environment designed for testing the Simu
 
 ## Game Environment Description:
 - The matrix represents a game board where each cell has specific characteristics.
+- '-1' represents a starting point.
 - '0' represents a free path.
 - '1' represents an obstacle.
 - '2' represents a reward that multiplies points by 2.
-- '4' represents the finish line.
+- '3' represents the finish line.
 - I assume that game environment (2D matrix) must be a square.
 
 ## Goal of the Algorithm:
