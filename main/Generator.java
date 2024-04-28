@@ -1,6 +1,6 @@
-/* This class is responsible for generating random board with all the necessarry things:
-*   - '0' represents a free path.
-*   - '1' represents an obstacle.
+/* This class is responsible for generating random board with all the requirements:
+*   - '0' represents a starting point.
+*   - '1' represents a path.
 *   - '2' represents a reward that multiplies points by 2.
 *   - '3' represents the finish line.
 */
