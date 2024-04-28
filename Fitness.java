@@ -15,10 +15,10 @@ public class Fitness {
         int attempts = solution[1];
         int pointsGained = solution[2];
 
-        // Define weights for each component
+        // Defining weights for each component
         double distanceWeight = 1.0;
-        double attemptsWeight = -0.5; // Penalize more attempts
-        double pointsWeight = 0.3; // Encourage gaining points
+        double attemptsWeight = -0.5; // Penalising more attempts
+        double pointsWeight = 0.3; // Encouraging gaining points
 
         // Calculate fitness
         double fitness = distanceWeight * distance + attemptsWeight * attempts + pointsWeight * pointsGained;
