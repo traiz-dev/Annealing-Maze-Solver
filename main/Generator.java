@@ -11,7 +11,20 @@ import java.util.Random;
 
 public class Generator {
     public static void main(String[] args) {
-        System.out.println(Arrays.deepToString(generateRandomGameBoard(4)));
+        int[][] matrix = {
+                {0, 1, 2, 1, 2, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 2, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 2, 1, 2, 1, 1, 2, 1},
+                {2, 1, 1, 2, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 2, 1, 1, 1, 1, 1, 1, 1},
+                {1, 2, 1, 1, 1, 1, 1, 1, 1, 3}
+        };
+        
+        System.out.println(Arrays.deepToString(generateRandomGameSolution(matrix)));
     }
 
     public static int[][] generateRandomGameBoard(int sizeOfBoard) {
@@ -38,5 +51,27 @@ public class Generator {
         gameBoard[sizeOfBoard - 1][sizeOfBoard - 1] = 3;
 
         return gameBoard;
+    }
+
+    public static int[][] generateRandomGameSolution(int[][] matrix) {
+        int N = matrix.length;
+
+        // Starting point
+        int currentX = 0;
+        int currentY = 0;
+        
+        // Distance (used in fitness function later)
+        int distance = 0;
+
+        while (matrix[currentX][currentY] != 3) {
+            // Random move (0: up, 1: right, 2: down, 3: left)
+            Random random = new Random();
+            int directionToMove = random.nextInt(4);
+            
+            //TODO: Probably using switch statement with variable 'directionToMove' (DK yet)
+        }
+        
+        int[][] dummyToRemoveError = new int[0][0];
+        return dummyToRemoveError;
     }
 }
