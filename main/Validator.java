@@ -14,8 +14,8 @@ public class Validator {
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if (matrix[i][j] != -1 && matrix[i][j] != 0 && matrix[i][j] != 1 && matrix[i][j] != 2 && matrix[i][j] != 3) {
-                    return false; // Must contain numbers from -1 to 3.
+                if (matrix[i][j] != 0 && matrix[i][j] != 1 && matrix[i][j] != 2 && matrix[i][j] != 3) {
+                    return false; // Must contain numbers from 0 - 3.
                 }
             }
         }

@@ -15,32 +15,28 @@ public class Generator {
     }
 
     public static int[][] generateRandomGameBoard(int sizeOfBoard) {
-        // Initialising board
+        // Initialize board
         int[][] gameBoard = new int[sizeOfBoard][sizeOfBoard];
 
-        // Random number to calculate probability of placing 0 in any way from starting point to make it as much random as possible.
+        // Initialize the game board with obstacles and rewards
         Random random = new Random();
-        double probability = 0.5;
-        double rand = random.nextDouble();
+        double rewardProbability = 0.1;
 
-        // Initialize the game board with obstacles
         for (int i = 0; i < sizeOfBoard; i++) {
             for (int j = 0; j < sizeOfBoard; j++) {
-                gameBoard[i][j] = random.nextInt(2); // Randomly assign 0 or 1 for obstacles
+                // Randomly assign obstacles or rewards based on probability
+                if (random.nextDouble() < rewardProbability) {
+                    gameBoard[i][j] = 2; // Reward placing
+                } else {
+                    gameBoard[i][j] = random.nextInt(1, 2); // Obstacle '1' or free path '0'
+                }
             }
         }
-        
+
         // Set starting and ending point
-        gameBoard[0][0] = -1;
+        gameBoard[0][0] = 0;
         gameBoard[sizeOfBoard - 1][sizeOfBoard - 1] = 3;
 
-        // Creating a path
-        if (rand < probability) {
-            gameBoard[0][1] = 0; // Assign element to [0][1]
-        } else {
-            gameBoard[1][0] = 0; // Assign element to [1][0]
-        }
-        
         return gameBoard;
     }
 }
