@@ -10,10 +10,10 @@ public class SimulatedAnnealing {
     public static int currentIteration = 0;
 
     public static void main(String[] args) {
-        int[][] matrix = Generator.generateRandomGameBoard(80);
+        int[][] matrix = Generator.generateRandomGameBoard(300);
         // System.out.println("BOARD: " + Arrays.deepToString(matrix));
         ArrayList<Integer> solution = simulatedAnnealing(matrix);
-        System.out.println("\u001B[32mMOST OPTIMAL SOLUTION SIZE: " + solution.size() + "\u001B[0m");
+        System.out.println("\u001B[32mMOST OPTIMAL SOLUTION SIZE (STEPS): " + solution.size() + "\u001B[0m");
     }
 
     public static ArrayList<Integer> simulatedAnnealing(int[][] gameBoard) {
@@ -59,7 +59,7 @@ public class SimulatedAnnealing {
         // Print initial solution size and improvement multiplicity
         System.out.println("\u001B[33mCOLLECTED REWARDS COUNT: " + rewardCount + "\u001B[33m");
         System.out.println("\u001B[34mIMPROVEMENT: " + improvement + " TIMES BETTER" + "\u001B[0m");
-        System.out.println("\u001B[31mINITIAL SOLUTION SIZE: " + initialSolutionSize + "\u001B[0m");
+        System.out.println("\u001B[31mINITIAL SOLUTION SIZE (STEPS): " + initialSolutionSize + "\u001B[0m");
 
         return currentSolution;
     }
