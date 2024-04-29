@@ -5,9 +5,24 @@
 *   - '3' represents the finish line.
 */
 
+import java.util.ArrayList;
+// import java.util.Arrays;
 import java.util.Random;
 
 public class Generator {
+    // public static void main(String[] args) {
+    //     System.out.println("GENERATED BOARD: ");
+    //     int[][] matrix = generateRandomGameBoard(2);
+    //     System.out.println(Arrays.deepToString(matrix));
+    //     System.out.println("BOARD SIZE: " + matrix.length*matrix.length);
+    //     System.out.println("-------------------------------------------");
+
+    //     System.out.println("SOLUTION: ");
+    //     ArrayList<Integer> solution = generateRandomGameSolution(matrix);
+    //     System.out.println(solution);
+    //     System.out.println("SOLUTION LENGTH: " + solution.size());
+    // }
+
     public static int[][] generateRandomGameBoard(int sizeOfBoard) {
         // Initialize board
         int[][] gameBoard = new int[sizeOfBoard][sizeOfBoard];
@@ -34,69 +49,52 @@ public class Generator {
         return gameBoard;
     }
 
-   public static int[] generateRandomGameSolution(int[][] matrix) {
+   public static ArrayList<Integer> generateRandomGameSolution(int[][] matrix) {
         int N = matrix.length;
+
+        // Empty solution initialisation
+        ArrayList<Integer> solution = new ArrayList<>();
 
         // Starting point
         int currentX = 0;
         int currentY = 0;
         
-        // Distance and Attempts (used in fitness function later)
-        int distance = 0;
-        int attempts = 0;
-        int pointsGained = 0;
-
         Random random = new Random();
 
-        while (matrix[currentX][currentY] != 3) {
-            attempts++;
-            
+        while (matrix[currentX][currentY] != 3) {            
             // Random move (0: up, 1: right, 2: down, 3: left)
             int directionToMove = random.nextInt(4);
             
             switch (directionToMove) {
                 case 0: // up
                     if (currentY > 0 && (matrix[currentX][currentY - 1] == 1 || matrix[currentX][currentY - 1] == 2 || matrix[currentX][currentY - 1] == 3)) {
-                        currentY--;
-                        distance++;
-                        if (matrix[currentX][currentY] == 2) {
-                            pointsGained++;
-                        }                        
+                        currentY--;      
+                        solution.add(0);
                     }
                     break;
                 case 1: // right
                     if (currentX < N - 1 && (matrix[currentX + 1][currentY] == 1 || matrix[currentX + 1][currentY] == 2 || matrix[currentX + 1][currentY] == 3)) {
-                        currentX++;
-                        distance++;
-                        if (matrix[currentX][currentY] == 2) {
-                            pointsGained++;
-                        }                        
+                        currentX++;     
+                        solution.add(1);      
                     }
                     break;
                 case 2: // down
                     if (currentY < N - 1 && (matrix[currentX][currentY + 1] == 1 || matrix[currentX][currentY + 1] == 2 || matrix[currentX][currentY + 1] == 3)) {
-                        currentY++;
-                        distance++;
-                        if (matrix[currentX][currentY] == 2) {
-                            pointsGained++;
-                        }                        
+                        currentY++;  
+                        solution.add(2);              
                     }
                     break;
                 case 3: // left
                     if (currentX > 0 && (matrix[currentX - 1][currentY] == 1 || matrix[currentX - 1][currentY] == 2 || matrix[currentX - 1][currentY] == 3)) {
                         currentX--;
-                        distance++;
-                        if (matrix[currentX][currentY] == 2) {
-                            pointsGained++;
-                        }
+                        solution.add(3);
                     }
                     break;
                 default:
                     break;
             }
         }
-        
-        int[] result = { distance, attempts, pointsGained };
-        return result;
+
+        return solution;
     }
 }
