@@ -13,12 +13,15 @@ public class SimulatedAnnealing {
         int[][] matrix = Generator.generateRandomGameBoard(100);
         // System.out.println("BOARD: " + Arrays.deepToString(matrix));
         ArrayList<Integer> solution = simulatedAnnealing(matrix);
-        System.out.println("MOST OPTIMAL SOLUTION SIZE: " + solution.size());
+        System.out.println("\u001B[32mMOST OPTIMAL SOLUTION SIZE: " + solution.size() + "\u001B[0m");
     }
 
     public static ArrayList<Integer> simulatedAnnealing(int[][] gameBoard) {
         ArrayList<Integer> currentSolution = Generator.generateRandomGameSolution(gameBoard);
         double currentFitness = Fitness.fitnessFunction(currentSolution, gameBoard);
+
+        // Store initial solution size
+        int initialSolutionSize = currentSolution.size();
 
         while (Temperature > minTemperature) {
             for (int i = 0; i < numIterations; i++) {
@@ -34,15 +37,17 @@ public class SimulatedAnnealing {
                     System.out.println("CURRENT TEMPERATURE: " + Temperature);
                     System.out.println("NEW SOLUTION SIZE: " + currentSolution.size()); // Print new solution size (For smaller boards can print board: System.out.println("NEW SOLUTION: " + currentSolution);
                     System.out.println("---------------------------------------------------------");
-                    try {
-                        Thread.sleep(100); // 100-ms delay
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    // try {
+                    //     Thread.sleep(100); // 100-ms delay
+                    // } catch (InterruptedException e) {
+                    //     e.printStackTrace();
+                    // }
                 }
             }
             Temperature *= alpha; // Update temperature
         }
+        // Print initial and final solution sizes
+        System.out.println("\u001B[31mINITIAL SOLUTION SIZE: " + initialSolutionSize + "\u001B[0m");
 
         return currentSolution;
     }
