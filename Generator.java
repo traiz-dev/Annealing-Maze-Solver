@@ -29,7 +29,7 @@ public class Generator {
 
         // Initialize the game board with obstacles and rewards
         Random random = new Random();
-        double rewardProbability = 0.1;
+        double rewardProbability = 0.2;
 
         for (int i = 0; i < sizeOfBoard; i++) {
             for (int j = 0; j < sizeOfBoard; j++) {

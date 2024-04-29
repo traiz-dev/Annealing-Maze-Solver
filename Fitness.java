@@ -63,7 +63,7 @@ public class Fitness {
 
         // Calculate fitness based on path length and reward count
         fitness = (double) (gameBoard.length * gameBoard.length) / (pathLength + 1); // Normalize path length
-        fitness *= (1 + rewardCount); // Encourage collecting rewards
+        fitness *= (2 + rewardCount); // Encourage collecting rewards
 
         return fitness;
     }
