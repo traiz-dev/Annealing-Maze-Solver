@@ -1,16 +1,10 @@
+/*
+ * This class defines an operator for making small changes to a solution.
+ * It contains a method to generate a new solution different from the original one.
+ */
 import java.util.ArrayList;
-// import java.util.Arrays;
-// import java.util.Random;
 
 public class Operator {
-    // public static void main(String[] args) {
-    //     int[][] matrix = Generator.generateRandomGameBoard(2);
-    //     System.out.println(Arrays.deepToString(matrix));
-    //     ArrayList<Integer> solution = Generator.generateRandomGameSolution(matrix);
-    //     System.out.println("INITIAL SOLUTION: " + solution);
-    //     System.out.println("SMALL CHANGE: " + smallChangeOperator(solution, matrix));
-    // }
-
     public static ArrayList<Integer> smallChangeOperator(ArrayList<Integer> solution, int[][] matrix) {
         // Regenerate a new solution
         ArrayList<Integer> newSolution = Generator.generateRandomGameSolution(matrix);

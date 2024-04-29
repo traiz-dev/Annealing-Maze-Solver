@@ -4,29 +4,9 @@
  * the fitness score of a solution based on various criteria such as path length
  * and reward collection.
 */
-
 import java.util.ArrayList;
-// import java.util.Arrays;
 
 public class Fitness {
-    // public static void main(String[] args) {
-    //     System.out.println("GENERATED BOARD: ");
-    //     int[][] matrix = Generator.generateRandomGameBoard(10);
-    //     System.out.println(Arrays.deepToString(matrix));
-    //     System.out.println("BOARD SIZE: " + matrix.length*matrix.length);
-
-    //     System.out.println("-------------------------------------------");
-
-    //     System.out.println("SOLUTION: ");
-    //     ArrayList<Integer> solution = Generator.generateRandomGameSolution(matrix);
-    //     System.out.println(solution);
-    //     System.out.println("SOLUTION LENGTH: " + solution.size());
-
-    //     System.out.println("-------------------------------------------");
-
-    //     System.err.println("FITNESS: " + fitnessFunction(solution, matrix));
-    // }
-
     public static double fitnessFunction(ArrayList<Integer> solution, int[][] gameBoard) {
         int pathLength = solution.size();
         int rewardCount = 0;
@@ -62,7 +42,7 @@ public class Fitness {
         }
 
         // Calculate fitness based on path length and reward count
-        fitness = (double) (gameBoard.length * gameBoard.length) / (pathLength + 1); // Normalize path length
+        fitness = (double) (gameBoard.length * gameBoard.length) / (pathLength + 1); // Normalise path length
         fitness *= (2 + rewardCount); // Encourage collecting rewards
 
         return fitness;

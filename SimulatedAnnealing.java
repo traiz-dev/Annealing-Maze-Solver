@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.Arrays;
+// import java.util.Arrays;
 
 public class SimulatedAnnealing {
     // Global variables
@@ -10,7 +10,7 @@ public class SimulatedAnnealing {
     public static int currentIteration = 0;
 
     public static void main(String[] args) {
-        int[][] matrix = Generator.generateRandomGameBoard(100);
+        int[][] matrix = Generator.generateRandomGameBoard(20);
         // System.out.println("BOARD: " + Arrays.deepToString(matrix));
         ArrayList<Integer> solution = simulatedAnnealing(matrix);
         System.out.println("\u001B[32mMOST OPTIMAL SOLUTION SIZE: " + solution.size() + "\u001B[0m");
@@ -46,7 +46,7 @@ public class SimulatedAnnealing {
             }
             Temperature *= alpha; // Update temperature
         }
-        // Print initial and final solution sizes
+        // Print initial solution size
         System.out.println("\u001B[31mINITIAL SOLUTION SIZE: " + initialSolutionSize + "\u001B[0m");
 
         return currentSolution;

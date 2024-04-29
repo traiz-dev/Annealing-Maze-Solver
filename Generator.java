@@ -4,30 +4,15 @@
 *   - '2' represents a reward that multiplies points by 2.
 *   - '3' represents the finish line.
 */
-
 import java.util.ArrayList;
-// import java.util.Arrays;
 import java.util.Random;
 
 public class Generator {
-    // public static void main(String[] args) {
-    //     System.out.println("GENERATED BOARD: ");
-    //     int[][] matrix = generateRandomGameBoard(2);
-    //     System.out.println(Arrays.deepToString(matrix));
-    //     System.out.println("BOARD SIZE: " + matrix.length*matrix.length);
-    //     System.out.println("-------------------------------------------");
-
-    //     System.out.println("SOLUTION: ");
-    //     ArrayList<Integer> solution = generateRandomGameSolution(matrix);
-    //     System.out.println(solution);
-    //     System.out.println("SOLUTION LENGTH: " + solution.size());
-    // }
-
     public static int[][] generateRandomGameBoard(int sizeOfBoard) {
-        // Initialize board
+        // Initialise board
         int[][] gameBoard = new int[sizeOfBoard][sizeOfBoard];
 
-        // Initialize the game board with obstacles and rewards
+        // Initialise the game board with obstacles and rewards
         Random random = new Random();
         double rewardProbability = 0.2;
 
@@ -49,7 +34,7 @@ public class Generator {
         return gameBoard;
     }
 
-   public static ArrayList<Integer> generateRandomGameSolution(int[][] matrix) {
+    public static ArrayList<Integer> generateRandomGameSolution(int[][] matrix) {
         int N = matrix.length;
 
         // Empty solution initialisation
