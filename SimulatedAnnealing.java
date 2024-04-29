@@ -10,10 +10,10 @@ public class SimulatedAnnealing {
     public static int currentIteration = 0;
 
     public static void main(String[] args) {
-        int[][] matrix = Generator.generateRandomGameBoard(300);
+        int[][] matrix = Generator.generateRandomGameBoard(100);
         // System.out.println("BOARD: " + Arrays.deepToString(matrix));
         ArrayList<Integer> solution = simulatedAnnealing(matrix);
-        System.out.println("MOST OPTIMAL SOLUTION: " + solution.size());
+        System.out.println("MOST OPTIMAL SOLUTION SIZE: " + solution.size());
     }
 
     public static ArrayList<Integer> simulatedAnnealing(int[][] gameBoard) {
@@ -32,10 +32,10 @@ public class SimulatedAnnealing {
                     currentFitness = newFitness;
                     System.out.println("ITERATION: " + currentIteration);
                     System.out.println("CURRENT TEMPERATURE: " + Temperature);
-                    System.out.println("NEW SOLUTION SIZE: " + currentSolution.size()); // Print new solution size
+                    System.out.println("NEW SOLUTION SIZE: " + currentSolution.size()); // Print new solution size (For smaller boards can print board: System.out.println("NEW SOLUTION: " + currentSolution);
                     System.out.println("---------------------------------------------------------");
                     try {
-                        Thread.sleep(100); // 2-second delay
+                        Thread.sleep(100); // 100-ms delay
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
