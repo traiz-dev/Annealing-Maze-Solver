@@ -46,7 +46,11 @@ public class SimulatedAnnealing {
             }
             Temperature *= alpha; // Update temperature
         }
-        // Print initial solution size
+        int finalSolutionSize = currentSolution.size();
+        float improvement = Math.round(initialSolutionSize / finalSolutionSize);
+
+        // Print initial solution size and improvement multiplicity
+        System.out.println("\u001B[34mIMPROVEMENT: " + improvement + " TIMES BETTER" + "\u001B[0m");
         System.out.println("\u001B[31mINITIAL SOLUTION SIZE: " + initialSolutionSize + "\u001B[0m");
 
         return currentSolution;
